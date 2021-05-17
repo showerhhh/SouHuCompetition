@@ -54,10 +54,19 @@ class MyDataset(Dataset):
 
 
 if __name__ == '__main__':
-    os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
-    dataset = MyDataset(type='ssA', mode='test')
-    dataloader = DataLoader(dataset, batch_size=cnf.batch_size, shuffle=False)
+    for t in ['slA', 'slB']:
+        cnf.run_type = t
+        if t in ['ssA', 'ssB']:
+            cnf.max_seq_len = 128
+        elif t in ['slA', 'slB']:
+            cnf.max_seq_len = 1024
+        elif t in ['llA', 'llB']:
+            cnf.max_seq_len = 2048
 
-    for index, data in enumerate(dataloader):
-        print(data)
+        dataset = MyDataset(type=cnf.run_type, mode='train')
+        dataloader = DataLoader(dataset, batch_size=cnf.batch_size, shuffle=True)
+
+        for index, data in enumerate(dataloader):
+            print(data)

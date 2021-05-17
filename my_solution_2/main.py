@@ -12,7 +12,7 @@ from tqdm import tqdm
 import config as cnf
 from dataset import MyDataset
 from earlystop import EarlyStop
-from model.ERNIE import ERNIE
+from model.BERT import BERT
 
 
 def train(model, optimizer, criterion, train_dataloader, evaluate_dataloader):
@@ -151,8 +151,8 @@ def main():
             cnf.max_seq_len = 2048
 
         # 模型
-        # model = BERT().cuda()
-        model = ERNIE().cuda()
+        model = BERT().cuda()
+        # model = ERNIE().cuda()
         print('Using model: {}'.format(model.__class__.__name__))
         # 优化器
         optimizer = optim.AdamW(model.parameters(), lr=cnf.lr)
@@ -172,5 +172,5 @@ def main():
 
 
 if __name__ == '__main__':
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "1"
     main()

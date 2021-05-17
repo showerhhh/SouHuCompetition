@@ -9,7 +9,7 @@ import config as cnf
 class BERT_MODULE(nn.Module):
     def __init__(self):
         super(BERT_MODULE, self).__init__()
-        self.bert = BertModel.from_pretrained(cnf.bert_path)
+        self.bert = BertModel.from_pretrained(cnf.ernie_path)
         # self.model_config = BertConfig.from_pretrained(cnf.bert_path)
         # self.model_config.output_hidden_states = True  # 设置返回所有隐层输出
         for param in self.bert.parameters():

@@ -1,13 +1,13 @@
-import logging
-
-LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
-DATE_FORMAT = "%m/%d/%Y %H:%M:%S %p"
-logging.basicConfig(filename='record.log',
-                    filemode='a',
-                    level=logging.INFO,
-                    format=LOG_FORMAT,
-                    datefmt=DATE_FORMAT)
-logger = logging.getLogger()
+# import logging
+#
+# LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
+# DATE_FORMAT = "%m/%d/%Y %H:%M:%S %p"
+# logging.basicConfig(filename='record.log',
+#                     filemode='a',
+#                     level=logging.INFO,
+#                     format=LOG_FORMAT,
+#                     datefmt=DATE_FORMAT)
+# logger = logging.getLogger()
 
 run_type = 'ssA'  # 当前处理类型
 
